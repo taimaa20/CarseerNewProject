@@ -8,8 +8,6 @@ namespace CarseerNewProject.Repository
     {
         public  string LoadCarMakes(string makename)
         {
-            var carMakesList = new List<CarMake>();
-            var carMakesObj = new CarMake();
             using (var reader = new StreamReader("CarMake.csv"))
             using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
             {

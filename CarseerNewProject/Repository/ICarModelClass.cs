@@ -7,5 +7,5 @@ namespace CarseerNewProject.Repository
         string LoadCarMakes(string makename);
         Task<string> GetURL(Uri u);
         ModelsByMakeId GetModelsForMakeIdYear(string MakeId, long ModelYear);
-    }
+     }
 }
