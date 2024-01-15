@@ -6,7 +6,7 @@ namespace CarseerNewProject.Repository
 {
     public class CarModelClass : ICarModelClass
     {
-        public  string LoadCarMakes(string makename)
+        public string LoadCarMakes(string makename)
         {
             using (var reader = new StreamReader("CarMake.csv"))
             using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
@@ -14,13 +14,10 @@ namespace CarseerNewProject.Repository
                 var records = csv.GetRecords<dynamic>();
                 foreach (var record in records)
                 {
-                    carMakesObj.Make_Name = record.make_name;
-                    carMakesObj.Make_Id =   record.make_id;
                     if (record.make_name == makename)
-                    {
                         return record.make_id;
-                       
-                    }
+
+
                 }
             }
 
@@ -44,7 +41,7 @@ namespace CarseerNewProject.Repository
             return response;
         }
 
-        public ModelsByMakeId GetModelsForMakeIdYear(string MakeId,long ModelYear)
+        public ModelsByMakeId GetModelsForMakeIdYear(string MakeId, long ModelYear)
         {
             var ModelsByMakeObj = new ModelsByMakeId();
             var ApiUrl = $"https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/{MakeId}/modelyear/{ModelYear}?format=json";
